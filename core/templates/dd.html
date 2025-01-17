@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <title>Dashboard</title>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <h2>Dashboard</h2>
+        <button id="close-btn" class="close-btn">&times;</button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <button id="menu-btn" class="menu-btn">&#9776;</button>
+        <h1>Reports</h1>
+      </header>
+
+      <section class="summary-cards">
+        <div class="card">
+          <h3>Total Sales</h3>
+          <p>$3,250</p>
+        </div>
+        <div class="card">
+          <h3>Total Orders</h3>
+          <p>2,952</p>
+        </div>
+        <div class="card">
+          <h3>Visitors</h3>
+          <p>2,860</p>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <h2>Sales Overview</h2>
+        <div id="chart-placeholder">[Chart Placeholder]</div>
+      </section>
+    </div>
+  </div>
+
+      <!-- Link JS -->
+      <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
