@@ -12,6 +12,16 @@ def forms_page(request):
 
 #Handling the shops 
 def shop_page(request):
+    if request.method == 'POST':
+       form = ShopForm(request.POST)
+       if form.is_valid():
+          print("Form is valid..saving data...")
+          form.save()  # Save shop to the database
+          return redirect('shops')  # Redirect to shop list after saving
+       else:
+          print("Form is not valid...")
+               #print(form.errors)
+               #return render(request, 'shops.html', {'form': form,})  # Show the form again with errors if invalid
     
     shops = Shop.objects.all()
     return render(request, 'shops.html', {'shops': shops})  # Ensure'shop.html' is in your templates folder
@@ -50,6 +60,9 @@ def register_staff(request):
     else:
         form = StaffForm()
     return render(request, 'staff.html', {'form': form})
+
+def items_page(request):
+    return render(request, 'items.html')  # Ensure 'items.html' is in your templates folder
 
 def tables_page(request):
     return render(request, 'tables.html')  # Ensure 'tables.html' is in your templates folder

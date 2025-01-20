@@ -104,7 +104,7 @@
           <form action="{% url 'register_staff' %}" method="post">
                     {% csrf_token %}
                     <div class="mb-4">
-                      <label for="staffName" class="block text-gray-700 text-sm font-bold mb-2">Staff Name</label>
+                      <label for="staffName" class="block text-gray-700 text-sm font-bold mb-2"> Name</label>
                       <input type="text" id="staffName" name="staffName"
                              class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500">
                   </div>
@@ -157,9 +157,11 @@
         <tr>
             <th>Staff ID</th>
             <th>Name</th>
-            <th>Contact</th>
+            <th>Address</th>
             <th>Telephone</th>
             <th>Email</th>
+            <th>username</th>
+            <th>password</th>
         </tr>
     </thead>
     <tbody>
@@ -170,6 +172,8 @@
             <td>{{ staff.address }}</td>
             <td>{{ staff.telephone }}</td>
             <td>{{ staff.email }}</td>
+            <td>{{ staff.username }}</td>
+            <td>{{ staff.password }}</td>
         </tr>
         {% endfor %}
     </tbody>
