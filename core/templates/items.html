@@ -8,4 +8,113 @@
 </button>
 </div>
 </section>
+
+<section class="section main-section">
+    <div class="card mb-6">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-ballot"></i></span>
+          Forms
+        </p>
+      </header>
+    
+        <!-- Modal -->
+        <div id="itemFormModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="bg-white w-1/2 p-6 rounded shadow-md">
+                    <div class="flex justify-end">
+                        <!-- Close Button -->
+                        <button id="closeItemForm" class="text-gray-700 hover:text-red-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h1 class="text-2xl font-bold mb-4">Register Item</h1>
+                    <form action="" method="post" class="bg-white p-6 rounded shadow-md">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="itemName" class="block text-gray-700 text-sm font-bold mb-2">Item Name</label>
+                            <input type="text" id="itemName" name="itemName"
+                                   class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500"
+                                   placeholder="Enter item name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="unit" class="block text-gray-700 text-sm font-bold mb-2">Unit</label>
+                            <select id="unit" name="unit"
+                                    class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+                                <option value="" disabled selected>Select a unit</option>
+                                <option value="pieces">Pieces</option>
+                                <option value="grams">Grams</option>
+                                <option value="kilograms">Kilograms</option>
+                                <option value="liters">Liters</option>
+                                <option value="boxes">Boxes</option>
+                                <!-- Add more units as needed -->
+                            </select>
+                        </div>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Register Item
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    
+    
+      <h1>Registered Items</h1>
+      <!-- <table border="1">
+          <thead>
+              <tr>
+                  <th>Shop ID</th>
+                  <th>Shop Name</th>
+                  <th>Location</th>
+                  <th>Telephone</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for shop in shops %}
+              <tr>
+                  <td>{{ shop.shopID}}</td>
+                  <td>{{ shop.shopName }}</td>
+                  <td>{{ shop.location }}</td>
+                  <td>{{ shop.telephone }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table> -->
+ 
+    </div>
+    
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-ballot-outline"></i></span>
+          Custom elements
+        </p>
+      </header>
+    </div>
+    </section>
+
+    <script>
+
+        // JavaScript to toggle the modal
+        const openItemFormButton = document.getElementById('openItemForm');
+        const closeItemFormButton = document.getElementById('closeItemForm');
+        const itemFormModal = document.getElementById('itemFormModal');
+    
+        openItemFormButton.addEventListener('click', () => {
+            itemFormModal.classList.remove('hidden');
+        });
+    
+        closeItemFormButton.addEventListener('click', () => {
+            itemFormModal.classList.add('hidden');
+        });
+    
+    
+        </script>
+
+
 {% endblock %}

@@ -67,6 +67,15 @@
                         <input type="text" id="telephone" name="telephone"
                                class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500">
                     </div>
+                    <div class="mb-4">
+                      <label for="staffAssigned" class="block text-gray-700 text-sm font-bold mb-2">Assign Staff</label>
+                      <select id="staffAssigned" name="staffAssigned"
+                              class="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500">
+                          {% for staff in staff %}
+                              <option value="{{ staff.id }}">{{ staff.staffName }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
                     <!-- <div class="mb-4">
                       <label for="staffAssigned" class="block text-gray-700 text-sm font-bold mb-2">Assign Staff</label>
                       {{ form.staffAssigned }}
@@ -91,25 +100,7 @@
             </div>
         </div>
     </div>
-
-
-  <h1>Register Shop</h1>
-<form method="post" action="{% url 'register_shop' %}">
-    {% csrf_token %}
-    <label for="id_shop_name">Shop Name:</label><br>
-    {{ form.shopName }}
-    <input type="text" id="shopName" name="shopName"><br>
-
-    <label for="id_location">Location:</label><br>
-    {{ form.location }}
-    <input type="text" id="location" name="location"><br>
     
-    <label for="id_telephone">Telephone:</label><br>  
-    {{ form.telephone }}
-    <input type="text" id="telephone" name="telephone"><br>
-    
-    <input type="submit" value="submit">Register</button>
-</form>
 
 
   <h1>Registered Shops</h1>

@@ -24,7 +24,10 @@ def shop_page(request):
                #return render(request, 'shops.html', {'form': form,})  # Show the form again with errors if invalid
     
     shops = Shop.objects.all()
-    return render(request, 'shops.html', {'shops': shops})  # Ensure'shop.html' is in your templates folder
+    # Query all staff members to populate the dropdown
+    staff = Staff.objects.all()
+   
+    return render(request, 'shops.html', {'shops': shops, 'staff': staff })  # Ensure'shop.html' is in your templates folder
 
 
 def register_shop(request):
